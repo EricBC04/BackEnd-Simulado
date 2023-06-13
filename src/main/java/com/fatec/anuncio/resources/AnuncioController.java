@@ -22,18 +22,18 @@ import com.fatec.anuncio.services.AnuncioService;
 public class AnuncioController {
     
     @Autowired
-    private AnunciosService anuncioService;
+    private AnuncioService anunciosService;
 
 
     @GetMapping
     public ResponseEntity<List<Anuncio>> getAnuncios(){
-        List<Anuncio> anuncioses = anuncioService.getAnuncios();
+        List<Anuncio> anuncioses = anunciosService.getAnuncios();
         return ResponseEntity.ok().body(anuncioses);
     }
 
     @PostMapping
     public ResponseEntity<Anuncio> saveAnuncio(@RequestBody Anuncio anuncio){
-        Anuncio anuncioSalvo = anuncioService.save(anuncio);
+        Anuncio anuncioSalvo = anunciosService.save(anuncio);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
